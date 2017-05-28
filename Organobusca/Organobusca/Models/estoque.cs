@@ -6,8 +6,8 @@ namespace Organobusca.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estoque")]
-    public partial class estoque
+    [Table("Estoque")]
+    public partial class Estoque
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
@@ -18,8 +18,8 @@ namespace Organobusca.Models
 
         public float? preco { get; set; }
 
-        public virtual feirante feirante { get; set; }
+        public virtual Feirante Feirante { get; set; }
 
-        public virtual produto produto { get; set; }
+        public virtual Produto Produto { get; set; }
     }
 }

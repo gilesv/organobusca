@@ -117,15 +117,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\avaliacao.cs" />
-    <Compile Include="Models\cliente.cs" />
+    <Compile Include="Models\Avaliacao.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\dbOrg.cs" />
-    <Compile Include="Models\diadasemana.cs" />
-    <Compile Include="Models\estoque.cs" />
+    <Compile Include="Models\DiaDaSemana.cs" />
+    <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\Feira.cs" />
-    <Compile Include="Models\feirante.cs" />
-    <Compile Include="Models\preferencia.cs" />
-    <Compile Include="Models\produto.cs" />
+    <Compile Include="Models\Feirante.cs" />
+    <Compile Include="Models\Preferencia.cs" />
+    <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

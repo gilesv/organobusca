@@ -6,8 +6,8 @@ namespace Organobusca.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("preferencia")]
-    public partial class preferencia
+    [Table("Preferencia")]
+    public partial class Preferencia
     {
         public int id { get; set; }
 
@@ -15,8 +15,8 @@ namespace Organobusca.Models
 
         public int? Cliente_id { get; set; }
 
-        public virtual cliente cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
-        public virtual produto produto { get; set; }
+        public virtual Produto Produto { get; set; }
     }
 }

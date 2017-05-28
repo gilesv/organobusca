@@ -8,50 +8,50 @@ namespace Organobusca.Models
     public partial class dbOrg : DbContext
     {
         public dbOrg()
-            : base("name=dbOrg")
+            : base("name=dbOrg1")
         {
         }
 
-        public virtual DbSet<avaliacao> avaliacao { get; set; }
-        public virtual DbSet<cliente> cliente { get; set; }
-        public virtual DbSet<diadasemana> diadasemana { get; set; }
-        public virtual DbSet<estoque> estoque { get; set; }
+        public virtual DbSet<Avaliacao> Avaliacao { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<DiaDaSemana> DiaDaSemana { get; set; }
+        public virtual DbSet<Estoque> Estoque { get; set; }
         public virtual DbSet<Feira> Feira { get; set; }
-        public virtual DbSet<feirante> feirante { get; set; }
-        public virtual DbSet<preferencia> preferencia { get; set; }
-        public virtual DbSet<produto> produto { get; set; }
+        public virtual DbSet<Feirante> Feirante { get; set; }
+        public virtual DbSet<Preferencia> Preferencia { get; set; }
+        public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<avaliacao>()
+            modelBuilder.Entity<Avaliacao>()
                 .Property(e => e.comentario)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<Cliente>()
                 .Property(e => e.nome)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<Cliente>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<Cliente>()
                 .Property(e => e.senha)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
+            modelBuilder.Entity<Cliente>()
                 .Property(e => e.url_foto)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<cliente>()
-                .HasMany(e => e.avaliacao)
-                .WithOptional(e => e.cliente)
+            modelBuilder.Entity<Cliente>()
+                .HasMany(e => e.Avaliacao)
+                .WithOptional(e => e.Cliente)
                 .HasForeignKey(e => e.Cliente_id);
 
-            modelBuilder.Entity<cliente>()
-                .HasMany(e => e.preferencia)
-                .WithOptional(e => e.cliente)
+            modelBuilder.Entity<Cliente>()
+                .HasMany(e => e.Preferencia)
+                .WithOptional(e => e.Cliente)
                 .HasForeignKey(e => e.Cliente_id);
 
             modelBuilder.Entity<Feira>()
@@ -79,58 +79,58 @@ namespace Organobusca.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Feira>()
-                .HasMany(e => e.diadasemana)
+                .HasMany(e => e.DiaDaSemana)
                 .WithRequired(e => e.Feira)
                 .HasForeignKey(e => e.Feira_id)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Feira>()
-                .HasMany(e => e.feirante)
+                .HasMany(e => e.Feirante)
                 .WithOptional(e => e.Feira)
                 .HasForeignKey(e => e.Feira_id);
 
-            modelBuilder.Entity<feirante>()
+            modelBuilder.Entity<Feirante>()
                 .Property(e => e.nome)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<feirante>()
+            modelBuilder.Entity<Feirante>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<feirante>()
+            modelBuilder.Entity<Feirante>()
                 .Property(e => e.senha)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<feirante>()
+            modelBuilder.Entity<Feirante>()
                 .Property(e => e.site)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<feirante>()
+            modelBuilder.Entity<Feirante>()
                 .Property(e => e.url_foto)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<feirante>()
-                .HasMany(e => e.avaliacao)
-                .WithOptional(e => e.feirante)
+            modelBuilder.Entity<Feirante>()
+                .HasMany(e => e.Avaliacao)
+                .WithOptional(e => e.Feirante)
                 .HasForeignKey(e => e.Feirante_id);
 
-            modelBuilder.Entity<feirante>()
-                .HasMany(e => e.estoque)
-                .WithOptional(e => e.feirante)
+            modelBuilder.Entity<Feirante>()
+                .HasMany(e => e.Estoque)
+                .WithOptional(e => e.Feirante)
                 .HasForeignKey(e => e.Feirante_id);
 
-            modelBuilder.Entity<produto>()
+            modelBuilder.Entity<Produto>()
                 .Property(e => e.nome)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<produto>()
-                .HasMany(e => e.estoque)
-                .WithOptional(e => e.produto)
+            modelBuilder.Entity<Produto>()
+                .HasMany(e => e.Estoque)
+                .WithOptional(e => e.Produto)
                 .HasForeignKey(e => e.Produto_id);
 
-            modelBuilder.Entity<produto>()
-                .HasMany(e => e.preferencia)
-                .WithOptional(e => e.produto)
+            modelBuilder.Entity<Produto>()
+                .HasMany(e => e.Preferencia)
+                .WithOptional(e => e.Produto)
                 .HasForeignKey(e => e.Produto_id);
         }
     }

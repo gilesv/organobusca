@@ -12,8 +12,8 @@ namespace Organobusca.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Feira()
         {
-            diadasemana = new HashSet<diadasemana>();
-            feirante = new HashSet<feirante>();
+            DiaDaSemana = new HashSet<DiaDaSemana>();
+            Feirante = new HashSet<Feirante>();
         }
 
         public int id { get; set; }
@@ -36,14 +36,14 @@ namespace Organobusca.Models
         [StringLength(5)]
         public string numero { get; set; }
 
-        public float? logintude { get; set; }
+        public float? longitude { get; set; }
 
-        public float? latitudade { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<diadasemana> diadasemana { get; set; }
+        public float? latitude { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<feirante> feirante { get; set; }
+        public virtual ICollection<DiaDaSemana> DiaDaSemana { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feirante> Feirante { get; set; }
     }
 }

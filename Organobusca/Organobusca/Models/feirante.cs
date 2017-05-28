@@ -6,14 +6,14 @@ namespace Organobusca.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("feirante")]
-    public partial class feirante
+    [Table("Feirante")]
+    public partial class Feirante
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public feirante()
+        public Feirante()
         {
-            avaliacao = new HashSet<avaliacao>();
-            estoque = new HashSet<estoque>();
+            Avaliacao = new HashSet<Avaliacao>();
+            Estoque = new HashSet<Estoque>();
         }
 
         public int id { get; set; }
@@ -36,10 +36,10 @@ namespace Organobusca.Models
         public int? Feira_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<avaliacao> avaliacao { get; set; }
+        public virtual ICollection<Avaliacao> Avaliacao { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<estoque> estoque { get; set; }
+        public virtual ICollection<Estoque> Estoque { get; set; }
 
         public virtual Feira Feira { get; set; }
     }

@@ -6,14 +6,14 @@ namespace Organobusca.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("produto")]
-    public partial class produto
+    [Table("Produto")]
+    public partial class Produto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public produto()
+        public Produto()
         {
-            estoque = new HashSet<estoque>();
-            preferencia = new HashSet<preferencia>();
+            Estoque = new HashSet<Estoque>();
+            Preferencia = new HashSet<Preferencia>();
         }
 
         public int id { get; set; }
@@ -24,9 +24,9 @@ namespace Organobusca.Models
         public int? tipo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<estoque> estoque { get; set; }
+        public virtual ICollection<Estoque> Estoque { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<preferencia> preferencia { get; set; }
+        public virtual ICollection<Preferencia> Preferencia { get; set; }
     }
 }

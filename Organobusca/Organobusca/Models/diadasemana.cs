@@ -6,8 +6,8 @@ namespace Organobusca.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("diadasemana")]
-    public partial class diadasemana
+    [Table("DiaDaSemana")]
+    public partial class DiaDaSemana
     {
         public int id { get; set; }
 

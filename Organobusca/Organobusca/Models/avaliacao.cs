@@ -6,8 +6,8 @@ namespace Organobusca.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("avaliacao")]
-    public partial class avaliacao
+    [Table("Avaliacao")]
+    public partial class Avaliacao
     {
         public int id { get; set; }
 
@@ -19,8 +19,8 @@ namespace Organobusca.Models
 
         public int? pontuacao { get; set; }
 
-        public virtual cliente cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
-        public virtual feirante feirante { get; set; }
+        public virtual Feirante Feirante { get; set; }
     }
 }
