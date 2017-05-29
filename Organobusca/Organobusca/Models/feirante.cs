@@ -18,19 +18,33 @@ namespace Organobusca.Models
 
         public int id { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "por favor preencha o campo!")]
+        [RegularExpression(@"^([\'\.\^\~\´\`\\áÁ\\àÀ\\ãÃ\\âÂ\\éÉ\\èÈ\\êÊ\\íÍ\\ìÌ\\óÓ\\òÒ\\õÕ\\ôÔ\\úÚ\\ùÙ\\çÇaA-zZ]+)+((\s[\'\.\^\~\´\`\\áÁ\\àÀ\\ãÃ\\âÂ\\éÉ\\èÈ\\êÊ\\íÍ\\ìÌ\\óÓ\\òÒ\\õÕ\\ôÔ\\úÚ\\ùÙ\\çÇaA-zZ]+)+)?", ErrorMessage = "Permitido somente letras maiúsculas e minúsculas!")]
+        [Display(Name = "Nome")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 100 caracteres!")]
         public string nome { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "por favor preencha o campo!")]
+        [Display(Name = "Email")]
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "Email inválido!")]
         public string email { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "por favor preencha o campo!")]
+        [Display(Name = "Senha")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 30 caracteres!")]
         public string senha { get; set; }
 
+        [Required(ErrorMessage = "por favor preencha o campo!")]
+        [Display(Name = "Confirmação de Senha")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 30 caracteres!")]
+        [Compare("senha", ErrorMessage = "senhas não batem!")]
+        public string confirmaSenha { get; set; }
         [StringLength(200)]
+        [Display(Name = "Endereço do seu site")]
         public string site { get; set; }
 
         [StringLength(600)]
+        [Display(Name = "URL da sua foto")]
         public string url_foto { get; set; }
 
         public int? Feira_id { get; set; }
