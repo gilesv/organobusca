@@ -22,9 +22,13 @@ namespace Organobusca_.Models
         public string nome { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Email")]
+        [Required(ErrorMessage ="Informe o seu email.")]
         public string email { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Senha")]
+        [Required(ErrorMessage = "Digite sua senha corretamente.")]
         public string senha { get; set; }
 
         public string url_foto { get; set; }
