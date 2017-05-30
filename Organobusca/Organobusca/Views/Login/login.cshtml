@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("login", "Login", FormMethod.Post))
+        {
+            @Html.ValidationSummary()
+            <label><b>Login</b></label>
+            <br />
+            <input type="text" name="email"/>
+            <br />
+            <label><b>Senha</b></label>
+            <br />
+            <input type="password" name="senha"/>
+            <br />
+            <input type="submit" value="Enviar"/>
+        }
+    </div>
+</body>
+</html>

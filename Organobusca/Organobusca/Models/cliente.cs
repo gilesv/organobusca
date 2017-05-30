@@ -34,11 +34,14 @@ namespace Organobusca.Models
         [Display(Name = "Senha")]
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 30 caracteres!")]
         public string senha { get; set; }
+
+        [NotMapped]
         [Required(ErrorMessage = "por favor preencha o campo!")]
         [Display(Name = "Confirmação de Senha")]
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 30 caracteres!")]
         [Compare("senha", ErrorMessage = "senhas não batem!")]
         public string confirmaSenha { get; set; }
+
         [Display(Name = "URL da sua foto")]
         public string url_foto { get; set; }
 

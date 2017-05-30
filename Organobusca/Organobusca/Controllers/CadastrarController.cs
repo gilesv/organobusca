@@ -25,10 +25,16 @@ namespace Organobusca.Controllers
         public ActionResult ClienteFormulario(Cliente c)
         {
             if (ModelState.IsValid)
-            {
-                db.Cliente.Add(c);
-                TempData["mensagem"] = "Cadastrado com sucesso!";
-                return RedirectToAction("Index", "Home");
+            {     
+                if (db.Cliente.FirstOrDefault(a => a.email == c.email) == null)
+                {
+                    db.Cliente.Add(c);
+                    db.SaveChanges();
+                    TempData["mensagem"] = "Cadastrado com sucesso!";
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", "Email já existente!");
+                return View();
             }
             return View();
         }

@@ -3,22 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Organobusca.Models;
 
 namespace Organobusca.Controllers
 {
-    public class HomeController : Controller
+    public class ContaController : Controller
     {
-        // GET: Home
+        // GET: Conta
         public ActionResult Index()
         {
-            ViewBag.Temp = TempData["mensagem"];
             return View();
         }
-        public ActionResult Opcoes()
-        {
-            return View();
-        }
-
     }
 }
