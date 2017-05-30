@@ -31,7 +31,7 @@ namespace Organobusca.Controllers
                     db.Cliente.Add(c);
                     db.SaveChanges();
                     TempData["mensagem"] = "Cadastrado com sucesso!";
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 ModelState.AddModelError("", "Email já existente!");
                 return View();
@@ -53,11 +53,18 @@ namespace Organobusca.Controllers
         [HttpPost]
         public ActionResult FeiranteFormulario(Feirante f)
         {
-            ViewBag.Feira_id = new SelectList(db.Feira.ToList(), "id", "nome");
             if (ModelState.IsValid)
             {
-                TempData["mensagem"] = "Cadastrado com sucesso!";
-                return RedirectToAction("Index", "Home");
+                ViewBag.Feira_id = new SelectList(db.Feira.ToList(), "id", "nome");
+                if (db.Feirante.FirstOrDefault(a => a.email == f.email) == null)
+                {
+                    db.Feirante.Add(f);
+                    db.SaveChanges();
+                    TempData["mensagem"] = "Cadastrado com sucesso!";
+                    return RedirectToAction("Index", "Dashboard");
+                }
+                ModelState.AddModelError("", "Email já existente!");
+                return View();
             }
             return View();
         }
