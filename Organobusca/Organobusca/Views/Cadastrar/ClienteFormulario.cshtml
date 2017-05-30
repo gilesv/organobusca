@@ -1,7 +1,7 @@
 ﻿@model Organobusca.Models.Cliente
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
     {
         @Html.AntiForgeryToken()
         
-        <div class="form-horizontal" align ="center">
+        <div class="form-horizontal">
             <h4>Cliente</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -72,7 +72,7 @@
         </div>
     }
     <br />
-    <div align ="center">
+    <div>
         @Html.ActionLink("Voltar para página inicial", "Index", "Home")
     </div>
 </body>
