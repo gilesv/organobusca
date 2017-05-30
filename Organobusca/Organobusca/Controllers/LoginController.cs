@@ -46,15 +46,17 @@ namespace Organobusca.Controllers
                         FormsAuthentication.RedirectFromLoginPage(nome, false);
                         return RedirectToAction("IndexFeirante", "Dashboard");
                     }
-                    //FormsAuthentication.SignOut();
-                    //Session.Clear();
-                    //Session["usuarioLogadoId"] = v.id.ToString();
-                    //Session["nomeUsuarioLogado"] = v.nome.ToString();
                     return View();
                 }
             }
             ModelState.AddModelError("", "Login ou senha inválido!");
             return View();
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

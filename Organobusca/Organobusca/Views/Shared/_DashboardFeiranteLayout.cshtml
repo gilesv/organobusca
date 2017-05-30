@@ -39,7 +39,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Dashboard</a></li>
                     <li><a href="#">@HttpContext.Current.User.Identity.Name</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                 </ul>
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Pesquisar feiras...">
