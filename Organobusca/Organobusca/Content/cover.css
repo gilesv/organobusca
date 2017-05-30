@@ -54,11 +54,11 @@ body {
     border: 0;
 }
 
-.btn-cadastro:hover {
-    color: #fff;
-    background-color: #89b950;
-    border: 0;
-}
+    .btn-cadastro:hover, .btn-cadastro:active, .btn-cadastro:active:focus, btn-cadastro:focus {
+        color: #fff;
+        background-color: #89b950;
+        border: 0;
+    }
 .btn-cadastro:active {
     color: #7ead47;
     background-color: #fff;

@@ -33,7 +33,7 @@ namespace Organobusca.Controllers
                     TempData["mensagem"] = "Cadastrado com sucesso!";
                     return RedirectToAction("Index", "Dashboard");
                 }
-                ModelState.AddModelError("", "Email já existente!");
+                ModelState.AddModelError("", "Email já cadastrado.");
                 return View();
             }
             return View();
@@ -63,7 +63,7 @@ namespace Organobusca.Controllers
                     TempData["mensagem"] = "Cadastrado com sucesso!";
                     return RedirectToAction("Index", "Dashboard");
                 }
-                ModelState.AddModelError("", "Email já existente!");
+                ModelState.AddModelError("", "Email já cadastrado.");
                 return View();
             }
             return View();
