@@ -20,47 +20,12 @@ namespace Organobusca.Controllers
         {
             return View();
         }
-        public ActionResult ClienteFormulario()
-        {
-            return View();
-        }
 
         [HttpPost]
-        public ActionResult ClienteFormulario(Cliente c)
+        public ActionResult login(string email)
         {
-            if (ModelState.IsValid)
-            {
-                db.Cliente.Add(c);
-                TempData["mensagem"] = "Cadastrado com sucesso!";
-                return RedirectToAction("Index", "Home");
-            }
-            return View();
+            var result = db.Cliente.FirstOrDefault(model => model.email.ToLower() != email);
+            return Json(result);
         }
-
-        //public ActionResult ClienteResultado(Cliente c)
-        //{
-        //    return View(c);
-        //}
-
-        public ActionResult FeiranteFormulario()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult FeiranteFormulario(Feirante f)
-        {
-            if (ModelState.IsValid)
-            {
-                TempData["mensagem"] = "Cadastrado com sucesso!";
-                return RedirectToAction("Index", "Home");
-            }
-            return View();
-        }
-
-        //public ActionResult FeiranteResultado(Feirante f)
-        //{
-        //    return View(f);
-        //}
     }
 }

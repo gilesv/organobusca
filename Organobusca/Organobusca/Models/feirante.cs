@@ -47,6 +47,7 @@ namespace Organobusca.Models
         [Display(Name = "URL da sua foto")]
         public string url_foto { get; set; }
 
+        [Display(Name ="Feira")]
         public int? Feira_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
