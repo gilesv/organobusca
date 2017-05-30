@@ -46,7 +46,7 @@ namespace Organobusca.Controllers
 
         public ActionResult FeiranteFormulario()
         {
-            ViewBag.Feira_id = new SelectList(db.Feira.ToList(), "id", "nome");
+            //ViewBag.Feira_id = new SelectList(db.Feira.ToList(), "id", "nome");
             return View();
         }
 

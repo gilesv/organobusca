@@ -12,7 +12,12 @@ namespace Organobusca.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
+            return View();
+        }
 
+        [Authorize(Roles = "feirante")]
+        public ActionResult IndexFeirante()
+        {
             return View();
         }
     }

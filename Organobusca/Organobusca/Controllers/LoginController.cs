@@ -33,22 +33,24 @@ namespace Organobusca.Controllers
                     string nome = string.Empty;
 
                     if (v != null)
-                    {
+                    {   
                         Session["usuario"] = v;
                         nome = v.nome;
+                        FormsAuthentication.RedirectFromLoginPage(nome, false);
+                        return RedirectToAction("Index", "Dashboard");
                     }
                     else if (f != null)
                     {
                         Session["usuario"] = f;
                         nome = f.nome;
+                        FormsAuthentication.RedirectFromLoginPage(nome, false);
+                        return RedirectToAction("IndexFeirante", "Dashboard");
                     }
-
-                    FormsAuthentication.RedirectFromLoginPage(nome, false);
                     //FormsAuthentication.SignOut();
                     //Session.Clear();
                     //Session["usuarioLogadoId"] = v.id.ToString();
                     //Session["nomeUsuarioLogado"] = v.nome.ToString();
-                    return RedirectToAction("Index", "Home");
+                    return View();
                 }
             }
             ModelState.AddModelError("", "Login ou senha inválido!");
