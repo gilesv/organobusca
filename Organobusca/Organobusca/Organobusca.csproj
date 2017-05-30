@@ -140,7 +140,7 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -151,6 +151,7 @@
     <Content Include="Views\Home\FeiranteFormulario.cshtml" />
     <Content Include="Views\Home\ClienteResultado.cshtml" />
     <Content Include="Views\Home\FeiranteResultado.cshtml" />
+    <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
