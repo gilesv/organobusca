@@ -101,6 +101,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cover.css" />
     <Content Include="Content\dashboard.css" />
+    <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\starter-template.css" />
