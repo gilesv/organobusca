@@ -141,17 +141,17 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Opcoes.cshtml" />
-    <Content Include="Views\Cadastrar\ClienteFormulario.cshtml" />
-    <Content Include="Views\Cadastrar\FeiranteFormulario.cshtml" />
-    <Content Include="Views\Cadastrar\ClienteResultado.cshtml" />
-    <Content Include="Views\Cadastrar\FeiranteResultado.cshtml" />
+    <Content Include="Views\Home\ClienteFormulario.cshtml" />
+    <Content Include="Views\Home\FeiranteFormulario.cshtml" />
+    <Content Include="Views\Home\ClienteResultado.cshtml" />
+    <Content Include="Views\Home\FeiranteResultado.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
