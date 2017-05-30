@@ -9,6 +9,7 @@ namespace Organobusca.Controllers
 {
     public class HomeController : Controller
     {
+        private dbOrg db = new dbOrg();
         // GET: Home
         public ActionResult Index()
         {
@@ -29,6 +30,7 @@ namespace Organobusca.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Cliente.Add(c);
                 TempData["mensagem"] = "Cadastrado com sucesso!";
                 return RedirectToAction("Index", "Home");
             }
