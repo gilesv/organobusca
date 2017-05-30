@@ -12,6 +12,7 @@ namespace Organobusca.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Temp = TempData["mensagem"];
             return View();
         }
         public ActionResult Opcoes()
@@ -28,15 +29,16 @@ namespace Organobusca.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("ClienteResultado", c);
+                TempData["mensagem"] = "Cadastrado com sucesso!";
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
 
-        public ActionResult ClienteResultado(Cliente c)
-        {
-            return View(c);
-        }
+        //public ActionResult ClienteResultado(Cliente c)
+        //{
+        //    return View(c);
+        //}
 
         public ActionResult FeiranteFormulario()
         {
@@ -48,14 +50,15 @@ namespace Organobusca.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("FeiranteResultado", f);
+                TempData["mensagem"] = "Cadastrado com sucesso!";
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
 
-        public ActionResult FeiranteResultado(Feirante f)
-        {
-            return View(f);
-        }
+        //public ActionResult FeiranteResultado(Feirante f)
+        //{
+        //    return View(f);
+        //}
     }
 }
