@@ -8,7 +8,7 @@ namespace Organobusca.Controllers
 {
     public class DashboardController : Controller
     {
-
+        [Authorize(Roles ="cliente")]
         // GET: Dashboard
         public ActionResult Index()
         {

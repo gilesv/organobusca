@@ -34,6 +34,7 @@ namespace Organobusca.Models
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 30 caracteres!")]
         public string senha { get; set; }
 
+        [NotMapped]
         [Required(ErrorMessage = "por favor preencha o campo!")]
         [Display(Name = "Confirmação de Senha")]
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 30 caracteres!")]

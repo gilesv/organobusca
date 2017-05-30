@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Organobusca.Controllers
 {
@@ -25,10 +26,28 @@ namespace Organobusca.Controllers
             if (ModelState.IsValid)
             {
                 var v = db.Cliente.Where(a => a.email.Equals(email) && a.senha.Equals(senha)).FirstOrDefault();
-                if (v != null)
+                var f = db.Feirante.Where(a => a.email.Equals(email) && a.senha.Equals(senha)).FirstOrDefault();
+
+                if (v != null || f != null)
                 {
-                    Session["usuarioLogadoId"] = v.id.ToString();
-                    Session["nomeUsuarioLogado"] = v.nome.ToString();
+                    string nome = string.Empty;
+
+                    if (v != null)
+                    {
+                        Session["usuario"] = v;
+                        nome = v.nome;
+                    }
+                    else if (f != null)
+                    {
+                        Session["usuario"] = f;
+                        nome = f.nome;
+                    }
+
+                    FormsAuthentication.RedirectFromLoginPage(nome, false);
+                    //FormsAuthentication.SignOut();
+                    //Session.Clear();
+                    //Session["usuarioLogadoId"] = v.id.ToString();
+                    //Session["nomeUsuarioLogado"] = v.nome.ToString();
                     return RedirectToAction("Index", "Home");
                 }
             }
