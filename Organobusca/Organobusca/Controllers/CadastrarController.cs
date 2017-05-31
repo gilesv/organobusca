@@ -16,13 +16,13 @@ namespace Organobusca.Controllers
             return View();
         }
 
-        public ActionResult ClienteFormulario()
+        public ActionResult Cliente()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult ClienteFormulario(Cliente c)
+        public ActionResult Cliente(Cliente c)
         {
             if (ModelState.IsValid)
             {     
@@ -39,19 +39,13 @@ namespace Organobusca.Controllers
             return View();
         }
 
-        //public ActionResult ClienteResultado(Cliente c)
-        //{
-        //    return View(c);
-        //}
-
-        public ActionResult FeiranteFormulario()
+        public ActionResult Feirante()
         {
-            //ViewBag.Feira_id = new SelectList(db.Feira.ToList(), "id", "nome");
             return View();
         }
 
         [HttpPost]
-        public ActionResult FeiranteFormulario(Feirante f)
+        public ActionResult Feirante(Feirante f)
         {
             if (ModelState.IsValid)
             {
@@ -68,10 +62,5 @@ namespace Organobusca.Controllers
             }
             return View();
         }
-
-        //public ActionResult FeiranteResultado(Feirante f)
-        //{
-        //    return View(f);
-        //}
     }
 }

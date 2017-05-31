@@ -45,7 +45,7 @@ namespace Organobusca.Models
         public string site { get; set; }
 
         [StringLength(600)]
-        [Display(Name = "URL da sua foto")]
+        [Display(Name = "Foto de perfil")]
         public string url_foto { get; set; }
 
         [Display(Name ="Feira")]

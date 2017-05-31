@@ -12,13 +12,7 @@ namespace Organobusca.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Temp = TempData["mensagem"];
             return View();
         }
-        public ActionResult Opcoes()
-        {
-            return View();
-        }
-
     }
 }

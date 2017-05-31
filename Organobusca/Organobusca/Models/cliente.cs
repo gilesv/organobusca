@@ -42,7 +42,7 @@ namespace Organobusca.Models
         [Compare("senha", ErrorMessage = "senhas não batem!")]
         public string confirmaSenha { get; set; }
 
-        [Display(Name = "URL da sua foto")]
+        [Display(Name = "Foto de perfil")]
         public string url_foto { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

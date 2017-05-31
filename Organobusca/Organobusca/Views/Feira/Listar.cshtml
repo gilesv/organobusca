@@ -1,0 +1,76 @@
+﻿@model List<Organobusca.Models.Feira>
+
+@{
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_DashboardFeiranteLayout.cshtml";
+}
+
+<h2>Listar</h2>
+
+<p>
+    @Html.ActionLink("Criar", "Criar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bairro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.latitude)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bairro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.latitude)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Editar", new { id=item.id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.id }) |
+            @Html.ActionLink("Apagar", "Delet", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -12,7 +12,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="~/Content/Images/favicon.ico">
 
     <title>Organobusca</title>
 
@@ -26,11 +26,6 @@
 </head>
 
 <body>
-
-    <div>
-        @TempData["mensagem"]
-    </div>
-
     <div class="site-wrapper">
 
         <div class="site-wrapper-inner">
@@ -54,7 +49,7 @@
                     <h1 class="cover-heading">Encontre orgânicos facilmente.</h1>
                     <p class="lead">Busque produtos orgânicos em várias feiras do Recife ou promova sua venda de orgânicos conectando-se a clientes prósperos.</p>
                     <p class="lead">
-                        <a href="/Home/Opcoes" class="btn btn-lg btn-default btn-cadastro">Cadastre-se</a>
+                        <a href="@Url.Action("Index", "Cadastrar")" class="btn btn-lg btn-default btn-cadastro">Cadastre-se</a>
                         <p>Já tem uma conta? @Html.ActionLink("Entre agora", "Login", "Login")</p>
                     </p>
                 </div>
