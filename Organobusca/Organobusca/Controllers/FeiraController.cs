@@ -24,11 +24,11 @@ namespace Organobusca.Controllers
         {
             db.Feira.Add(f);
             db.SaveChanges();
-            return RedirectToAction("Listar");
+            return View("Listar", f);
         }
-        public ActionResult Listar()
+        public ActionResult Listar(Feira f)
         {
-            return View(db.Feira.ToList());
+            return View(f);
         }
     }
 }
