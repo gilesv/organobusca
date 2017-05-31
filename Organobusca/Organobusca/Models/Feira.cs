@@ -18,21 +18,27 @@ namespace Organobusca.Models
 
         public int id { get; set; }
 
+        [Display(Name = "Nome")]
         [StringLength(100)]
         public string nome { get; set; }
 
+        [Display(Name = "Bairro")]
         [StringLength(100)]
         public string bairro { get; set; }
 
+        [Display(Name = "Cidade")]
         [StringLength(45)]
         public string cidade { get; set; }
 
+        [Display(Name ="Rua")]
         [StringLength(100)]
         public string rua { get; set; }
 
+        [Display(Name = "CEP")]
         [StringLength(15)]
         public string cep { get; set; }
 
+        [Display(Name ="Número")]
         [StringLength(5)]
         public string numero { get; set; }
 
