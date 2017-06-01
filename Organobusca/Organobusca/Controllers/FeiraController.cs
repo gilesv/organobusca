@@ -42,5 +42,11 @@ namespace Organobusca.Controllers
             db.SaveChanges();
             return RedirectToAction("Listar");
         }
+        [Authorize(Roles = "feirante")]
+        [HttpPost]
+        public PartialViewResult HorarioFuncionamentoPartial()
+        {
+            return PartialView();
+        }
     }
 }

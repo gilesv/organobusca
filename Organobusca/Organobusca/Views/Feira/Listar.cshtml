@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/_DashboardFeiranteLayout.cshtml";
 }
 
-<h2>Listar</h2>
-
-<p>
-    @Html.ActionLink("Criar", "Criar")
-</p>
+<div style="display:inline-block;"><h2>Listar</h2></div>
+<div style="display:inline-block; float:right;">
+    @Html.ActionLink("Criar", "Criar", null, new { @class = "btn btn-success" })
+</div>
 
 <table class="table">
     <thead>
