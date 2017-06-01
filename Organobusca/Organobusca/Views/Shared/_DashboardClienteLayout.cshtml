@@ -43,7 +43,7 @@
                         @*@HttpContext.Current.User.Identity.Name*@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Html.GetUserName(HttpContext.Current.Session) <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Meus dados", "Index", "Editar")</li> 
+                            <li>@Html.ActionLink("Meus dados", "Cliente", "Conta")</li> 
                             <li><a href="#">Preferências</a></li>
                             <li><a href="#">Configurações</a></li>
                             <li>@Html.ActionLink("Sair", "Logout", "Login")</li>
