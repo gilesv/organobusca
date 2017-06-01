@@ -11,24 +11,36 @@ namespace Organobusca.Controllers
     {
         // GET: Feira
         private dbOrg db = new dbOrg();
+        [Authorize(Roles = "feirante")]
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = "feirante")]
         public ActionResult Criar()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "feirante")]
         public ActionResult Criar(Feira f)
         {
             db.Feira.Add(f);
             db.SaveChanges();
-            return View("Listar", f);
+            return View("Listar");
         }
-        public ActionResult Listar(Feira f)
+        [Authorize(Roles = "feirante")]
+        public ActionResult Listar()
         {
-            return View(f);
+            return View(db.Feira.ToList());
+        }
+        [Authorize(Roles = "feirante")]
+        public ActionResult Excluir(int id)
+        {
+            var remover = db.Feira.Where(m => m.id == id).FirstOrDefault();
+            db.Feira.Remove(remover);
+            db.SaveChanges();
+            return RedirectToAction("Listar");
         }
     }
 }

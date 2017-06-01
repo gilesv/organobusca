@@ -1,4 +1,4 @@
-﻿@model Organobusca.Models.Feira
+﻿@model List<Organobusca.Models.Feira>
 
 @{
     ViewBag.Title = "Listar";
@@ -10,7 +10,39 @@
 <p>
     @Html.ActionLink("Criar", "Criar")
 </p>
+
 <table class="table">
+    <thead>
+        <th><b>Nome</b></th>
+        <th><b>Rua</b></th>
+        <th><b>Cidade</b></th>
+        <!-- <th><b>Bairro</b></th> -->
+        <th><b>CEP</b></th>
+        <th><b>Horário de funcionamento</b></th>
+        <th></th>
+    </thead>
+    <tbody>
+    @if (Model != null)
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.nome</td>
+                <td>@item.rua</td>
+                <td>@item.cidade</td>
+                <td>@item.cep</td>
+                <td></td>
+                <td>@Html.ActionLink("Excluir", "Excluir", "Feira", new { id= item.id }, null)</td>
+    
+
+            </tr>
+        }
+    }
+    </tbody>
+
+</table>
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nome)
@@ -65,6 +97,6 @@
             @Html.ActionLink("Detalhes", "Detalhes", new { id = item.id }) |
             @Html.ActionLink("Apagar", "Delet", new { id = item.id })
         </th>*@
-        <th></th>
+        @*<th></th>
     </tr>
-</table>
+</table>*@
