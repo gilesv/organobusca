@@ -14,27 +14,70 @@ namespace Organobusca.Controllers
     {
         // GET: Editar
         private dbOrg db = new dbOrg();
-        [Authorize(Roles = "cliente")]
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            int id = 0;
+            var session = Session["usuario"];
+
+            if (session is Cliente)
+            {
+                id = ((Cliente)session).id;
+                var result = db.Cliente.Find(id);
+                    result.confirmaSenha = result.senha;
+                return View("IndexCliente", result);
+            }
+            else if (session is Feirante)
+            {
+                id = ((Feirante)session).id;
+                var result = db.Feirante.Find(id);
+                     result.confirmaSenha = result.senha;
+                return View("IndexFeirante", result);
+            }
+            else
+            {
+                return View("IndexCliente");
+            }
         }
         [HttpPost]
-        public ActionResult Index(Cliente c)
+        public ActionResult IndexCliente(Cliente c, string NovaSenha, string NovoConfirmaSenha)
         {
-            List<Cliente> dbList = db.Cliente.ToList<Cliente>();
-            foreach (var item in dbList)
-            { 
-                if (item.id == c.id || true)
+            if (ModelState.IsValid && NovoConfirmaSenha == NovaSenha )
+            {
+                if (!string.IsNullOrEmpty(NovaSenha) && NovaSenha != c.senha)
                 {
-                    db.Cliente.Remove(item);
-                    db.Cliente.Add(c);
-                    db.SaveChanges();
-                    TempData["mensagem"] = "Alterado com sucesso!";
-                    return RedirectToAction("Index", "Dashboard");
+                    c.senha = NovaSenha;
                 }
+
+                db.Cliente.Attach(c);
+                db.Entry(c).State = EntityState.Modified;
+                db.SaveChanges();
+                Session["usuario"] = c;
+                TempData["mensagem"] = "Alterado com sucesso!";
+                return RedirectToAction("Index", "Dashboard");
             }
-            return View();
+
+            return View("IndexCliente");
+        }
+        [HttpPost]
+        public ActionResult IndexFeirante(Feirante f, string NovaSenha, string NovoConfirmaSenha)
+        {
+            if (ModelState.IsValid && NovoConfirmaSenha == NovaSenha)
+            {
+                if (!string.IsNullOrEmpty(NovaSenha) && NovaSenha != f.senha)
+                {
+                    f.senha = NovaSenha;
+                }
+
+                db.Feirante.Attach(f);
+                db.Entry(f).State = EntityState.Modified;
+                db.SaveChanges();
+                Session["usuario"] = f;
+                TempData["mensagem"] = "Alterado com sucesso!";
+                return RedirectToAction("IndexFeirante", "Dashboard");
+            }
+
+            return View("IndexFeirante");
         }
     }
 }

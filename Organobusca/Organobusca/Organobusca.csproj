@@ -125,7 +125,8 @@
     <Content Include="Views\Feira\Criar.cshtml" />
     <Content Include="Views\Feira\_Listar.cshtml" />
     <Content Include="Views\Feira\Listar.cshtml" />
-    <Content Include="Views\Editar\Index.cshtml" />
+    <Content Include="Views\Editar\IndexCliente.cshtml" />
+    <Content Include="Views\Editar\IndexFeirante.cshtml" />
     <None Include="Views\Shared\_DashboardFeiranteLayout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\CustomRoleProvider.cs" />
+    <Compile Include="Util\HtmlExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
