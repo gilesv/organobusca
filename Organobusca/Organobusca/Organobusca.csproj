@@ -125,6 +125,7 @@
     <Content Include="Views\Feira\Criar.cshtml" />
     <Content Include="Views\Feira\_Listar.cshtml" />
     <Content Include="Views\Feira\Listar.cshtml" />
+    <Content Include="Views\Editar\Index.cshtml" />
     <None Include="Views\Shared\_DashboardFeiranteLayout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -133,6 +134,7 @@
     <Compile Include="Controllers\CadastrarController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EditarController.cs" />
     <Compile Include="Controllers\FeiraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
