@@ -19,27 +19,33 @@ namespace Organobusca.Models
         public int id { get; set; }
 
         [Display(Name = "Nome")]
-        [StringLength(100)]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 100 caracteres!")]
+        [Required(ErrorMessage ="necessário preencher o campo!")]
         public string nome { get; set; }
 
         [Display(Name = "Bairro")]
-        [StringLength(100)]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 100 caracteres!")]
+        [Required(ErrorMessage = "necessário preencher o campo!")]
         public string bairro { get; set; }
 
         [Display(Name = "Cidade")]
-        [StringLength(45)]
+        [StringLength(45, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 45 caracteres!")]
+        [Required(ErrorMessage = "necessário preencher o campo!")]
         public string cidade { get; set; }
 
         [Display(Name ="Rua")]
-        [StringLength(100)]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 100 caracteres!")]
+        [Required(ErrorMessage = "necessário preencher o campo!")]
         public string rua { get; set; }
 
         [Display(Name = "CEP")]
-        [StringLength(15)]
+        [StringLength(15, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 e no máximo 15 caracteres!")]
+        [Required(ErrorMessage = "necessário preencher o campo!")]
         public string cep { get; set; }
 
         [Display(Name ="Número")]
-        [StringLength(5)]
+        [StringLength(5, MinimumLength = 5, ErrorMessage = "Requerido no mínimo 5 caracteres!")]
+        [Required(ErrorMessage = "necessário preencher o campo!")]
         public string numero { get; set; }
 
         public float? longitude { get; set; }

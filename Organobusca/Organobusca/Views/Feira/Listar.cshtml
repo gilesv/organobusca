@@ -31,7 +31,12 @@
                 <td>@item.rua</td>
                 <td>@item.cidade</td>
                 <td>@item.cep</td>
-                <td></td>
+                <td>
+                    @foreach (var i in item.DiaDaSemana)
+                    {
+                        <span>@i.dia, das @i.hora_inicio às @i.hora_fim</span>
+                    }
+                </td>
                 <td>@Html.ActionLink("Excluir", "Excluir", "Feira", new { id= item.id }, null)</td>
     
 

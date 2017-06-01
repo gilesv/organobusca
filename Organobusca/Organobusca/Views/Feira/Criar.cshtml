@@ -12,7 +12,9 @@
     }
 </style>
 <h2>Criar nova feira</h2>
-
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -29,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            <span class="control-label col-md-2">Localização</span>
+            <label class="control-label col-md-2">Localização</label>
             <div class="col-md-10">
                 <div class="form-inline">
                     <input id="autocomplete" class="form-control" type="text" placeholder="Digite endereço">
@@ -71,28 +73,11 @@
             </div>
         </div>
 
-        <div id="diascp">
-            <div class="form-group">
-                <label class="control-label col-md-2">Horário de funcionamento</label>
-                <div class="col-md-10">
-                    <select name="dia[]">
-                        <option value="1">Domingo</option>
-                        <option value="2">Segunda-feira</option>
-                        <option value="3">Terça-feira</option>
-                        <option value="4">Quarta-feira</option>
-                        <option value="5">Quinta-feira</option>
-                        <option value="6">Sexta-feira</option>
-                        <option value="7">Sábado </option>
-                    </select>
-
-                    <label for="hora_inicio">Hora início</label>
-                    <input name="hora_inicio" type="time" />
-
-                    <label for="hora_inicio">Hora fim</label>
-                    <input name="hora_fim" type="time" />
-
-                    <button type="button" class="btn btn-success add">Adicionar novo horário</button>
-                </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Horário de funcionamento</label>
+            <div class="col-md-10">
+                <div id="diascp"></div>
+                <button type="button" class="btn btn-success add">Novo horário</button>
             </div>
         </div>
 
@@ -110,38 +95,43 @@
 }
 
 <div id="modelo-dia" class="form-group" style="display: none;">
-    <label class="control-label col-md-2">Horário de funcionamento</label>
-    <div class="col-md-10">
-        <select name="dia">
+    <div>
+        <select name="dia[]">
             <option value="1">Domingo</option>
             <option value="2">Segunda-feira</option>
             <option value="3">Terça-feira</option>
             <option value="4">Quarta-feira</option>
             <option value="5">Quinta-feira</option>
             <option value="6">Sexta-feira</option>
-            <option value="7">Sábado</option>
+            <option value="7">Sábado </option>
         </select>
 
         <label for="hora_inicio">Hora início</label>
-        <input name="hora_inicio" type="time" />
+        <input name="hora_inicio[]" type="time" />
 
         <label for="hora_inicio">Hora fim</label>
-        <input name="hora_fim" type="time" />
+        <input name="hora_fim[]" type="time" />
 
-        <button type="button" class="btn btn-success add">Adicionar novo horário</button>
+        <button type="button" class="btn btn-success excluir">Excluir</button>
     </div>
 </div>
 
 @section scripts
 {
     <script>
-        function AddFunction() {
+        var numeroDeHorarios = 0;
+        function adicionarDia() {
             var teste = $("#modelo-dia").clone();
+            numeroDeHorarios += 1;
+            teste.attr("id", "dia" + String(numeroDeHorarios));
             $("#diascp").append(teste.show());
         }
-
         $(document).ready(function () {
-            $(".add").click(AddFunction);
+            $(".add").click(adicionarDia);
+            $(document).on("click", ".excluir", function () {
+                numeroDeHorarios -= 1;
+                $(this).parent().remove();
+            });
         });
     </script>
 }
