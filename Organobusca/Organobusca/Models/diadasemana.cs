@@ -12,7 +12,7 @@ namespace Organobusca.Models
         public int id { get; set; }
 
         public int dia { get; set; }
-
+        
         public TimeSpan hora_inicio { get; set; }
 
         public TimeSpan hora_fim { get; set; }
