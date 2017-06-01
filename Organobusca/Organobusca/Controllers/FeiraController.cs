@@ -23,8 +23,15 @@ namespace Organobusca.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "feirante")]
-        public ActionResult Criar(Feira f)
+        public ActionResult Criar(Feira f, string[] dia)
         {
+            if (dia != null)
+            {
+                Response.Write(string.Join(",", dia));
+                return View();
+            }
+
+
             db.Feira.Add(f);
             db.SaveChanges();
             return View("Listar");
