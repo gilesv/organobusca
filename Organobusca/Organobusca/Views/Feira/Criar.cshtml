@@ -1,7 +1,7 @@
 ﻿@model Organobusca.Models.Feira
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Criar nova feira";
     Layout = "~/Views/Shared/_DashboardFeiranteLayout.cshtml";
 }
 <style>
@@ -38,6 +38,10 @@
                     <input id="submit" value="Encontrar" type="button" class="btn btn-success">
                 </div>
                 <div id="map"></div>
+                <div class="form-group">
+                    <input type="hidden" name="latitude" id="latitude" placeholder="latitude" />
+                    <input type="hidden" name="longitude" id="longitude" placeholder="longitude"/>
+                </div>
             </div>
         </div>
 
@@ -79,11 +83,6 @@
                 <div id="diascp"></div>
                 <button type="button" class="btn btn-success add">Novo horário</button>
             </div>
-        </div>
-
-        <div class="form-group">
-            <input type="hidden" name="latitude" id="latitude" />
-            <input type="hidden" name="longitude" id="longitude" />
         </div>
 
         <div class="form-group">
@@ -134,9 +133,7 @@
             });
         });
     </script>
-}
-
-<script>
+    <script>
         function initMap() {
 
             var geocoder = new google.maps.Geocoder();
@@ -206,11 +203,12 @@
 
             function fillAddressFields(results) {
                 var latlng = [results.geometry.location.lat(), results.geometry.location.lng()];
-                document.getElementById("latitude").value = latlng[0];
-                document.getElementById("longitude").value = latlng[1];
+                document.getElementById("latitude").value = latlng[0].toString().replace('.', ',');
+                document.getElementById("longitude").value = latlng[1].toString().replace('.', ',');
             }
         }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs3V5BDT2RqWxKznEvIBdT4WKNQ5_lLf0&libraries=places&callback=initMap" async defer></script>
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs3V5BDT2RqWxKznEvIBdT4WKNQ5_lLf0&libraries=places&callback=initMap" async defer></script>
+}
 <div>
 </div>

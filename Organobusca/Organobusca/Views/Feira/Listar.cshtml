@@ -1,11 +1,11 @@
 ﻿@model List<Organobusca.Models.Feira>
 
 @{
-    ViewBag.Title = "Listar";
+    ViewBag.Title = "Listar feiras";
     Layout = "~/Views/Shared/_DashboardFeiranteLayout.cshtml";
 }
 
-<div style="display:inline-block;"><h2>Listar</h2></div>
+<div style="display:inline-block;"><h2>Todas as feiras</h2></div>
 <div style="display:inline-block; float:right;">
     @Html.ActionLink("Criar", "Criar", null, new { @class = "btn btn-success" })
 </div>
@@ -23,6 +23,7 @@
     <tbody>
     @if (Model != null)
     {
+        string[] semana = { "", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado" };
 
         foreach (var item in Model)
         {
@@ -32,13 +33,15 @@
                 <td>@item.cidade</td>
                 <td>@item.cep</td>
                 <td>
-                    @foreach (var i in item.DiaDaSemana)
+                    @foreach (var dia in item.DiaDaSemana)
                     {
-                        <span>@i.dia, das @i.hora_inicio às @i.hora_fim</span>
+                        string campo = semana[@dia.dia] + " das " + @dia.hora_inicio.ToString(@"hh\:mm") + "h às " + @dia.hora_fim.ToString(@"hh\:mm") + "h";
+                        <div>@campo</div>
                     }
                 </td>
                 <td>@Html.ActionLink("Excluir", "Excluir", "Feira", new { id= item.id }, null)</td>
-    
+
+
 
             </tr>
         }

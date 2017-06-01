@@ -11,10 +11,10 @@ namespace Organobusca.Controllers
     {
         // GET: Feira
         private dbOrg db = new dbOrg();
-        [Authorize(Roles = "feirante")]
+        
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Listar");
         }
         [Authorize(Roles = "feirante")]
         public ActionResult Criar()
@@ -37,7 +37,7 @@ namespace Organobusca.Controllers
             }
             db.Feira.Add(f);
             db.SaveChanges();
-            return View("Listar");
+            return RedirectToAction("Listar");
         }
         [Authorize(Roles = "feirante")]
         public ActionResult Listar()
@@ -47,16 +47,15 @@ namespace Organobusca.Controllers
         [Authorize(Roles = "feirante")]
         public ActionResult Excluir(int id)
         {
-            var remover = db.Feira.Where(m => m.id == id).FirstOrDefault();
-            db.Feira.Remove(remover);
+            var feira = db.Feira.Where(m => m.id == id).FirstOrDefault();
+            
+            var dia = db.DiaDaSemana.Where(d => d.Feira_id == feira.id).ToList();
+            db.DiaDaSemana.RemoveRange(dia);
+
+            db.Feira.Remove(feira);
             db.SaveChanges();
             return RedirectToAction("Listar");
         }
-        [Authorize(Roles = "feirante")]
-        [HttpPost]
-        public PartialViewResult HorarioFuncionamentoPartial()
-        {
-            return PartialView();
-        }
+
     }
 }

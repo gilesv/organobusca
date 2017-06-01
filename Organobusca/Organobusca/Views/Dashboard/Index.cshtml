@@ -1,13 +1,55 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_DashboardClienteLayout.cshtml";
 }
-
+<style>
+    #map {
+        width: 100%;
+        height: 320px;
+        padding: 10px;
+    }
+</style>
 <h2>Dashboard</h2>
 
 <div>
-    @TempData["mensagem"]
+    <div id="map"></div>
 </div>
 
+@section scripts {
+    <script>
 
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -8.0624203, lng: -34.9270747 }, /* Recife */
+                zoom: 10
+            })
+            var geocoder = new google.maps.Geocoder();
+
+            $.ajax({
+                dataType: "json",
+                type: "GET",
+                url: "@Url.Action("FeirasJson")",
+                success: function (feiras) {
+                    mostrarFeiras(map, feiras);
+                }
+            });
+
+            function mostrarFeiras(map, feiras) {
+                for (let i = 0; i < feiras.length; i++) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: {
+                            lat: feiras[i]["Latitude"],
+                            lng: feiras[i]["Longitude"]
+                        },
+                        draggable: false
+                    });
+                    var infowindow = new google.maps.InfoWindow;
+                }
+            }
+         
+        }
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs3V5BDT2RqWxKznEvIBdT4WKNQ5_lLf0&callback=initMap" async defer></script>
+}
