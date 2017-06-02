@@ -42,10 +42,11 @@ namespace Organobusca.Controllers
         {
             public int id { get; set; }
         }
-        public PartialViewResult MostrarDetalhes(IdJson id)
+        public PartialViewResult MostrarDetalhes(string id)
         {
             dbOrg db = new dbOrg();
-            var feira = db.Feira.Where(f => f.id == id.id).First();
+            int Id = Convert.ToInt32(id);
+            var feira = db.Feira.Where(f => f.id == Id).SingleOrDefault();
             return PartialView(feira);
         }
         [Authorize(Roles = "cliente")]

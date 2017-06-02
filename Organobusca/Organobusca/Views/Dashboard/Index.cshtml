@@ -45,16 +45,7 @@
             });
 
             function mostrarDetalhesFeira(feira_id) {
-                $.ajax({
-                    type: "POST",
-                    url: "@Url.Action("MostrarDetalhes")",
-                    content: "application/json; charset=utf-8",
-                    dataType: "json",
-                    data: { id: feira_id },
-                    success: function(d) {
-                        alert(d)
-                    }
-                });
+                $("#partial_details").load("/Dashboard/MostrarDetalhes/" + feira_id);
             }
 
             var markerList = [];
