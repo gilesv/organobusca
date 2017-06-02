@@ -38,10 +38,14 @@ namespace Organobusca.Controllers
             }
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
-        public PartialViewResult MostrarDetalhes(int id)
+        public class IdJson
+        {
+            public int id { get; set; }
+        }
+        public PartialViewResult MostrarDetalhes(IdJson id)
         {
             dbOrg db = new dbOrg();
-            var feira = db.Feira.Where(f => f.id == id).First();
+            var feira = db.Feira.Where(f => f.id == id.id).First();
             return PartialView(feira);
         }
     }

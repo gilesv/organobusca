@@ -15,7 +15,7 @@
 
 <div>
     <div id="map"></div>
-    <div>
+    <div id="partial_details">
         @Html.Partial("MostrarDetalhes")
     </div>
 </div>
@@ -44,12 +44,16 @@
                 }
             });
 
-            function mostrarDetalhesFeira(id) {
+            function mostrarDetalhesFeira(feira_id) {
                 $.ajax({
-                    url: '@Url.Action("MostrarDetalhes", "Dashboard")',
-                    type: 'POST',
-                    data: { id: id },
-                    success: function (result) { }
+                    type: "POST",
+                    url: "@Url.Action("MostrarDetalhes")",
+                    content: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: { id: feira_id },
+                    success: function(d) {
+                        alert(d)
+                    }
                 });
             }
 
@@ -77,7 +81,7 @@
                             infowindowList[a].open(map, markerList[a]);
                             map.setCenter(markerList[a].getPosition());
                             map.setZoom(13);
-                            mostrarDetalhesFeira(feiras[i]["id"]);
+                            mostrarDetalhesFeira(feiras[i]["Id"]);
                         }
                     }(i));
                 }
