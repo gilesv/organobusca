@@ -13,6 +13,14 @@ namespace Organobusca.Controllers
         private dbOrg db = new dbOrg();
         public ActionResult Index()
         {
+            var SESSAO = Session["usuario"];
+            if (SESSAO != null)
+            {
+                if (SESSAO is Feirante)
+                    return RedirectToAction("IndexFeirante", "Dashboard");
+                else if (SESSAO is Cliente)
+                    return RedirectToAction("Index", "Dashboard");
+            }
             return View();
         }
 
