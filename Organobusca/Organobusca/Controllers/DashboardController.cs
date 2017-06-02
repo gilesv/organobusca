@@ -48,5 +48,10 @@ namespace Organobusca.Controllers
             var feira = db.Feira.Where(f => f.id == id.id).First();
             return PartialView(feira);
         }
+        [Authorize(Roles = "cliente")]
+        public ActionResult panorama()
+        {
+            return View();
+        }
     }
 }
