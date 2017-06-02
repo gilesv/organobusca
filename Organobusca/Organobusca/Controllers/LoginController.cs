@@ -18,6 +18,14 @@ namespace Organobusca.Controllers
         }
         public ActionResult login()
         {
+            var SESSAO = Session["usuario"];
+            if (SESSAO != null)
+            {
+                if (SESSAO is Feirante)
+                    return RedirectToAction("IndexFeirante", "Dashboard");
+                else if (SESSAO is Cliente)
+                    return RedirectToAction("Index", "Dashboard");
+            }
             return View();
         }
         [HttpPost]
