@@ -49,6 +49,8 @@ namespace Organobusca.Controllers
 
         public ActionResult Feirante()
         {
+            dbOrg db = new dbOrg();
+            ViewBag.listaFeiras = db.Feira.ToList();
             return View();
         }
 

@@ -11,12 +11,12 @@
     }
 </style>
 <h2>Dashboard</h2>
-<p>Feiras registradas</p>
+<p>Feiras perto de mim</p>
 
 <div>
     <div id="map"></div>
     <div id="partial_details">
-        @Html.Partial("MostrarDetalhes")
+        <p>Clique em uma feira para ver detalhes...</p>
     </div>
 </div>
 
@@ -45,16 +45,7 @@
             });
 
             function mostrarDetalhesFeira(feira_id) {
-                $.ajax({
-                    type: "POST",
-                    url: "@Url.Action("MostrarDetalhes")",
-                    content: "application/json; charset=utf-8",
-                    dataType: "json",
-                    data: { id: feira_id },
-                    success: function(d) {
-                        alert(d)
-                    }
-                });
+                $("#partial_details").load("/Dashboard/MostrarDetalhes/" + feira_id);
             }
 
             var markerList = [];
@@ -91,5 +82,3 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs3V5BDT2RqWxKznEvIBdT4WKNQ5_lLf0&callback=initMap" async defer></script>
 }
-
-

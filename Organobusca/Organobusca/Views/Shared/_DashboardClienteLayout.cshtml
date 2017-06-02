@@ -44,9 +44,7 @@
                         @*@HttpContext.Current.User.Identity.Name*@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Html.GetUserName(HttpContext.Current.Session) <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Meus dados", "Cliente", "Conta")</li> 
-                            <li><a href="#">Preferências **</a></li>
-                            <li><a href="#">Configurações **</a></li>
+                            <li>@Html.ActionLink("Minha conta", "Cliente", "Conta")</li> 
                             <li>@Html.ActionLink("Sair", "Logout", "Login")</li>
                         </ul>
                     </li>
@@ -64,8 +62,7 @@
                 <ul class="nav nav-sidebar">
 
                     <li class="active"><a href="@Url.Action("Index", "Dashboard")"><span class="glyphicon glyphicon-leaf"></span>Dashboard <span class="sr-only">(current)</span></a></li>
-                    <li><a href="@Url.Action("Cliente","Conta")"><span class="glyphicon glyphicon-user"></span>Meus dados</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-check"></span>Preferências **</a></li>
+                    <li><a href="@Url.Action("Cliente","Conta")"><span class="glyphicon glyphicon-user"></span>Minha conta</a></li>
                     <li><a href="@Url.Action("panorama","Dashboard")"><span class="glyphicon glyphicon-wrench"></span>Novidades</a></li>
                     <li><a href="@Url.Action("ajudaCliente", "Dashboard")"><span class="glyphicon glyphicon-question-sign"></span>Ajuda</a></li>
                 </ul>
