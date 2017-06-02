@@ -53,5 +53,15 @@ namespace Organobusca.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "cliente")]
+        public ActionResult ajudaCliente()
+        {
+            return View();
+        }
+        [Authorize(Roles = "feirante")]
+        public ActionResult ajudaFeirante()
+        {
+            return View();
+        }
     }
 }

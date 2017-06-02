@@ -131,6 +131,8 @@
     <Content Include="Views\Editar\IndexFeirante.cshtml" />
     <Content Include="Views\Dashboard\MostrarDetalhes.cshtml" />
     <Content Include="Views\Dashboard\panorama.cshtml" />
+    <Content Include="Views\Dashboard\ajudaCliente.cshtml" />
+    <Content Include="Views\Dashboard\ajudaFeirante.cshtml" />
     <None Include="Views\Shared\_DashboardFeiranteLayout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
