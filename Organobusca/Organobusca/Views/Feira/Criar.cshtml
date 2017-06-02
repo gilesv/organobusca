@@ -33,10 +33,8 @@
         <div class="form-group">
             <label class="control-label col-md-2">Localização</label>
             <div class="col-md-10">
-                <div class="form-inline">
-                    <input id="autocomplete" class="form-control" type="text" placeholder="Digite endereço">
-                    <input id="submit" value="Encontrar" type="button" class="btn btn-success">
-                </div>
+                <input id="autocomplete" class="form-control" type="text" placeholder="Digite endereço">
+                <input id="submit" value="Encontrar" type="button" class="btn btn-success">
                 <div id="map"></div>
                 <div class="form-group">
                     <input type="hidden" name="latitude" id="latitude" placeholder="latitude" />
@@ -50,6 +48,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.rua, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.rua, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bairro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bairro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.bairro, "", new { @class = "text-danger" })
             </div>
         </div>
 

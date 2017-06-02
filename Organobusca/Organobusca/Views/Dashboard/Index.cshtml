@@ -20,11 +20,16 @@
     <script>
 
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+            var map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: -8.0624203, lng: -34.9270747 }, /* Recife */
-                zoom: 10
+                zoom: 12,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: true,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: true
             })
-            var geocoder = new google.maps.Geocoder();
 
             $.ajax({
                 dataType: "json",
@@ -35,20 +40,35 @@
                 }
             });
 
-            function mostrarFeiras(map, feiras) {
-                for (let i = 0; i < feiras.length; i++) {
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: {
-                            lat: feiras[i]["Latitude"],
-                            lng: feiras[i]["Longitude"]
-                        },
-                        draggable: false
-                    });
-                    var infowindow = new google.maps.InfoWindow;
+            var markerList = [];
+            var infowindowList = [];
+
+            function closeAllInfoWindows() {
+                for (let i = 0; i < infowindowList.length; i++) {
+                    infowindowList[i].close();
                 }
             }
-         
+            function mostrarFeiras(map, feiras) {
+                for (let i = 0; i < feiras.length; i++) {
+                    markerList[i] = new google.maps.Marker({
+                        map: map,
+                        position: { lat: feiras[i]["Latitude"], lng: feiras[i]["Longitude"] },
+                        draggable: false
+                    })
+                    infowindowList[i] = new google.maps.InfoWindow({
+                        content: feiras[i]["Nome"]
+                    })
+                    google.maps.event.addListener(markerList[i], "click", function (a) {
+                        return function () {
+                            closeAllInfoWindows();
+                            infowindowList[a].open(map, markerList[a]);
+                            map.setCenter(markerList[a].getPosition());
+                            map.setZoom(13);
+                        }
+                    }(i));
+                }
+            }
+
         }
     </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs3V5BDT2RqWxKznEvIBdT4WKNQ5_lLf0&callback=initMap" async defer></script>
