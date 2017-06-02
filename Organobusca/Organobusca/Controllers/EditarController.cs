@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Organobusca.Controllers
 {
@@ -78,6 +79,28 @@ namespace Organobusca.Controllers
             }
 
             return View("IndexFeirante");
+        }
+        [Authorize(Roles = "cliente")]
+        public ActionResult DeletarCliente(int id)
+        {
+            var cliente = db.Cliente.Where(a => a.id == id).FirstOrDefault();
+            db.Cliente.Remove(cliente);
+            db.SaveChanges();
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            TempData["mensagem"] = "Usuário deletado!";
+            return RedirectToAction("Index", "Home");
+        }
+        [Authorize(Roles = "feirante")]
+        public ActionResult DeletarFeirante(int id)
+        {
+            var feirante = db.Feirante.Where(a => a.id == id).FirstOrDefault();
+            db.Feirante.Remove(feirante);
+            db.SaveChanges();
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            TempData["mensagem"] = "Usuário deletado!";
+            return RedirectToAction("Index", "Home");
         }
     }
 }
