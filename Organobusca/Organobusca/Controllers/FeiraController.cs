@@ -56,6 +56,5 @@ namespace Organobusca.Controllers
             db.SaveChanges();
             return RedirectToAction("Listar");
         }
-
     }
 }

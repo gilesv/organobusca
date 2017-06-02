@@ -128,6 +128,7 @@
     <Content Include="Views\Feira\Listar.cshtml" />
     <Content Include="Views\Editar\IndexCliente.cshtml" />
     <Content Include="Views\Editar\IndexFeirante.cshtml" />
+    <Content Include="Views\Dashboard\MostrarDetalhes.cshtml" />
     <None Include="Views\Shared\_DashboardFeiranteLayout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
